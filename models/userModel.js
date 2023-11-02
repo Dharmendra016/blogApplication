@@ -1,6 +1,6 @@
 const {Schema , model} = require("mongoose");
 const { createHmac , randomBytes} = require('node:crypto');
-
+const {createTokenForCookie}  = require("../services/auth");
 
 const userSchema = new Schema({
 
@@ -62,7 +62,8 @@ userSchema.static("checkPass" , async function(email , password) {
 
     if( proviedhashedPassword !== user.password ) throw new Error("no password matched");
 
-    return user;
+    const token = createTokenForCookie(user); 
+    return token;
 })
 
 

@@ -23,18 +23,19 @@ exports.userLogin = async ( req , res) => {
     try{
         const {email , password} = req.body ; 
 
-        const data = await userModel.checkPass(email , password);
+        const token = await userModel.checkPass(email , password);
 
-        console.log("dta",data);
-        if(!data) return res.redirect("/login");
+        if(!token) return res.render("login" ,{
+            error:"Incorrect email or password",
+        });
         
-        res.redirect("/");
+        res.cookie("token", token).redirect("/");
 
     }
     catch(err) {
-        console.log(err) ; 
-        res.status(500).json({
-            message:"internal error from login end point",
-        })
+        console.log(err);
+        res.render("login" ,{
+            error:"Incorrect email or password",
+        });
     }
 }

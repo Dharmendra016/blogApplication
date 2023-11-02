@@ -7,6 +7,12 @@
 <body>
     <div>
         <%- include('./partials/navbar') %>
+
+        <% if (locals.error) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+              </div>
+        <% } %>
     </div>
 
     <form action="/user/login" , method="post">

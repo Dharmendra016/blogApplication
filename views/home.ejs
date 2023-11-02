@@ -9,6 +9,10 @@
         <%- include('./partials/navbar') %>
     </div>
 
+    <% if (locals.data) { %>
+        <%= JSON.stringify(locals.data) %>
+    <% } %>
+
     <%- include('./partials/scripts') %>
 </body>
 </html>
