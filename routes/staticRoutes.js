@@ -16,4 +16,10 @@ router.get("/signup" , (req , res) => {
     return res.render("signup");
 })
 
+router.get("/addblog" , (req , res)=>{
+    return res.render("addBlog" , {
+        data:req.user,
+    })
+})
+
 module.exports = router ;

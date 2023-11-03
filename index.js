@@ -29,9 +29,11 @@ dbConnect();
 //routes
 const staticRoutes = require("./routes/staticRoutes");
 const userRoutes =  require("./routes/userRoute");
+const blogRoutes =  require("./routes/blogRoutes");
 
 app.use(staticRoutes);
 app.use("/user" , userRoutes); 
+app.use("/blog" , blogRoutes);
 
 
 //app listening
