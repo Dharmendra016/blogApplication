@@ -12,7 +12,7 @@ exports.blogController = async ( req ,res) => {
             coverImage:`/uploads/${req.file.filename}`,
         })
 
-        return res.redirect(`/blog/${blog._id}`);
+        return res.redirect("/");
         
     }catch(err){
         console.log(err);
