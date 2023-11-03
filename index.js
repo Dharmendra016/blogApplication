@@ -13,6 +13,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
 
+app.use(express.static('public')) // this thing is for image of public should be static which means nodejs le chai image ko link lai route na samjhos
+
 //middlewares
 const {checkAuthForCookie} = require("./middlewares/auth");
 app.use(checkAuthForCookie("token"));
@@ -30,10 +32,12 @@ dbConnect();
 const staticRoutes = require("./routes/staticRoutes");
 const userRoutes =  require("./routes/userRoute");
 const blogRoutes =  require("./routes/blogRoutes");
+const commentRoutes = require("./routes/commentRoutes");
 
 app.use(staticRoutes);
 app.use("/user" , userRoutes); 
 app.use("/blog" , blogRoutes);
+app.use("/" , commentRoutes);
 
 
 //app listening

@@ -1,9 +1,12 @@
 const express = require("express");
 const router = express.Router() ; 
+const blogModel = require("../models/blogModel");
 
-router.get("/" , (req , res ) => { 
+router.get("/" , async (req , res ) => { 
+    const blogData = await blogModel.find({});
     res.render("home" , {
         data:req.user,
+        blog:blogData,
     }) ;
 })
 

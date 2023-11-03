@@ -8,11 +8,21 @@
     <div>
         <%- include('./partials/navbar') %>
     </div>
+    <div class="container mt-3 mb-3 d-flex flex-row justify-content-between flex-wrap gap-3">
+    <% if (locals.blog) { %>
+        <% blog.forEach(element => { %>
+         
+            <div class="card" style="width: 18rem;">
+                <img src=<%= element.coverImage %> class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%= element.title %></h5>
+                  <a href="/blog/<%= element._id %>" class="btn btn-primary">read more</a>
+                </div>
+              </div>
 
-    <% if (locals.data) { %>
-        <%= JSON.stringify(locals.data) %>
+        <% }) %>
     <% } %>
-
+    </div>
     <%- include('./partials/scripts') %>
 </body>
 </html>

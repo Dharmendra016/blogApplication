@@ -4,6 +4,7 @@ const secret ="$tar#!1129=05";
 const createTokenForCookie = (user) => {
     const payload = { 
         _id:user._id , 
+        fullName:user.fullName,
         email:user.email, 
         imageUrl:user.profileImageUrl,
         role:user.role,

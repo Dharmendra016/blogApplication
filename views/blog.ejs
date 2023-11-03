@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <title>Homepage</title>
+        <style>
+            .blog {
+                text-align: center;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 20px;
+                align-items: center;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .imgdiv {
+                /* border: 2px solid red; */
+                width: 600px;
+                height: 400px;
+                overflow: hidden;
+                /* position: absolute; */
+            }
+
+            .imgdiv img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .userProfile {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+
+            .userProfile img {
+                height: 100%;
+                width: 100%;
+            }
+
+            .creator {
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                align-self: baseline;
+                margin-left: 118px;
+            }
+            .commentUser{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            .paragraph {
+                text-align: left;
+                text-wrap: wrap;
+                width: 80vw;
+                overflow: hidden;
+            }
+            .comment{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+</head>
+
+<body>
+    <div>
+        <%- include('./partials/navbar') %>
+    </div>
+
+    <div class="blog">
+        <h1>
+            <%= blogs.title %>
+        </h1>
+        <div class="imgdiv">
+            <img src=<%=blogs.coverImage %> alt=""">
+        </div>
+
+        <pre class="paragraph">
+            <%= blogs.body %>
+        </pre>
+
+        <div class="creator">
+            <div class="userProfile">
+                <img src=<%=blogs.createdBy.profileImageUrl %> alt="">
+            </div>
+            <h6>
+                <%= blogs.createdBy.fullName %>
+            </h6>
+        </div>
+        <h2>Comments  </h2>
+    </div>
+
+        <% if (locals.user) { %>
+         
+      
+            <form action="/comment/<%= blogs._id %>" , method="post">
+                <div class="mb-3  w-auto">
+                    <input type="text" name="comment" class="form-control" id="comment"
+                        placeholder="please enter your comment" aria-describedby="comment">
+                </div>
+
+                <button type="submit" class="btn btn-primary mb-3">Add Comment</button>
+            </form>
+        <% } %>          
+ 
+        <div class="commentUser">
+            <% comments.forEach(comment => { %>
+                <div class="comment">
+                <div>
+                    <div class="userProfile">
+                        <img src=<%= comment.commentedBy.profileImageUrl %> alt="">
+                    </div>
+                    <h6>
+                        <%= comment.commentedBy.fullName %>
+                    </h6>
+                </div>
+                <h5><%= comment.content %></h5>
+                </div>
+            <% }) %>
+        </div>
+
+
+    <%- include('./partials/scripts') %>
+</body>
+
+</html>

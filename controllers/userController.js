@@ -5,7 +5,7 @@ exports.userSignup = async ( req , res) => {
     try{
         const { username , email , password } = req.body; 
 
-        const saveData = await userModel.create({username , email , password}) ; 
+        const saveData = await userModel.create({fullName:username , email , password}) ; 
 
         return res.redirect("/login");
 
