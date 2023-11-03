@@ -54,8 +54,11 @@
             }
             .commentUser{
                 display: flex;
-                justify-content: center;
+                margin: 0 auto;
+                justify-content: space-between;
                 align-items: center;
+                width: 80vw;
+                gap: 10px;
                 flex-direction: column;
             }
             .paragraph {
@@ -65,9 +68,11 @@
                 overflow: hidden;
             }
             .comment{
+                width: 100%;
+                padding: 0 242px;
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                justify-content: space-between;
             }
         </style>
 </head>
@@ -97,7 +102,7 @@
                 <%= blogs.createdBy.fullName %>
             </h6>
         </div>
-        <h2>Comments  </h2>
+        <h2>Comments (<%= comments.length %>) </h2>
     </div>
 
         <% if (locals.user) { %>
@@ -124,7 +129,7 @@
                         <%= comment.commentedBy.fullName %>
                     </h6>
                 </div>
-                <h5><%= comment.content %></h5>
+                    <div><h5><%= comment.content %></h5></div>
                 </div>
             <% }) %>
         </div>
