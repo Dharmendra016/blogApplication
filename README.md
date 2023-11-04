@@ -12,6 +12,4 @@ steps:
 
 4.visit http://localhost:3000/ 
 
-5.for database connect mongodb 
-
-
+5.for database connect mongodb
