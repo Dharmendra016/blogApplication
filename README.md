@@ -6,19 +6,17 @@ Installation
 
 Clone the repository to your local machine:
 
-git clone https://github.com/dharmendra016/blogApplication.git
+git clone 
+https://github.com/dharmendra016/blogApplication.git
 
 Navigate to the project directory:
 cd blogApplication
 
 Install dependencies:
-
 npm install
 
 Create a .env file in the root directory of the project and add the following environment variables:
-
 PORT=3000
-
 DATABASE_URL=your_mongodb_connection_string
 
 Replace your_mongodb_connection_string with your MongoDB connection string.
