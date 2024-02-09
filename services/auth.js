@@ -9,7 +9,9 @@ const createTokenForCookie = (user) => {
         imageUrl:user.profileImageUrl,
         role:user.role,
     }
-    return JWT.sign(payload , secret);
+    return JWT.sign(payload , secret, {
+        expiresIn: "1d"
+    });
 }
 
 const validateToken = (token )=> { 
