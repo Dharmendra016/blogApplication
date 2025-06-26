@@ -1,5 +1,7 @@
 const JWT = require("jsonwebtoken");
-const secret ="$tar#!1129=05";
+const dotenv = require("dotenv");
+dotenv.config();
+const secret = process.env.JWT_SECRET;
 
 const createTokenForCookie = (user) => {
     const payload = { 
