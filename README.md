@@ -182,12 +182,6 @@ If you encounter any bugs or have questions:
 2. Create a new issue with detailed description
 3. Include steps to reproduce the problem
 
-## 📞 Contact
-
-- **Author**: Dharmendra Singh
-- **GitHub**: [@dharmendra016](https://github.com/dharmendra016)
-- **Email**: [Your Email]
-
 ---
 
 ⭐ If you found this project helpful, please give it a star!
